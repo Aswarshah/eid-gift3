@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آپ کا عید مبارک میسج</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>آپ کا میسج تیار ہو گیا!</h1>
+        <p id="finalMessage"></p>
+        <input type="text" id="generatedLink" readonly>
+        <button onclick="copyLink()">لنک کاپی کریں</button>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get("name") || "آپ کے دوست";
+        const relation = params.get("relation") || "دوست";
+        
+        const message = `میرے پیارے ${relation} کو ${name} کی طرف سے عید الفطر مبارک ہو!`;
+        document.getElementById("finalMessage").innerText = message;
+        
+        const link = `${window.location.origin}/eid-gift2/index.html?name=${encodeURIComponent(name)}`;
+        document.getElementById("generatedLink").value = link;
+
+        function copyLink() {
+            const copyText = document.getElementById("generatedLink");
+            copyText.select();
+            document.execCommand("copy");
+            alert("لنک کاپی ہو گیا!");
+        }
+    </script>
+</body>
+</html>
