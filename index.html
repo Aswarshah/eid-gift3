@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عید گفٹ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>عید مبارک</h1>
+        <p id="eidMessage">میرے پیارے دوست کو [نام] کی طرف سے عید الفطر مبارک ہو!</p>
+        <button onclick="window.location.href='customize.html'">اپنے کسی اور دوست کو سینڈ کرنے کے لیے یہاں کلک کریں</button>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get("name") || "آپ کے دوست";
+        document.getElementById("eidMessage").innerText = `میرے پیارے دوست کو ${name} کی طرف سے عید الفطر مبارک ہو!`;
+    </script>
+</body>
+</html>
