@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کسٹمائزیشن</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>اپنی عید مبارک کا پیغام کسٹمائز کریں</h1>
+        <form id="eidForm">
+            <label>اپنا نام لکھیں:</label>
+            <input type="text" id="name" required>
+            <br>
+            <label>رشتہ منتخب کریں:</label>
+            <select id="relation">
+                <option value="دوست">دوست</option>
+                <option value="بھائی">بھائی</option>
+                <option value="بہن">بہن</option>
+            </select>
+            <br>
+            <button type="submit">نیکسٹ</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("eidForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            const relation = document.getElementById("relation").value;
+            window.location.href = `generate.html?name=${name}&relation=${relation}`;
+        });
+    </script>
+</body>
+</html>
